@@ -6,7 +6,6 @@ with open("ponctualite-mensuelle-transilien.csv", encoding="ISO-8859-1") as file
     headers = next(reader)
     content = [{headers[nb] : x[nb] for nb in range(len(headers))} for x in reader]
 
-xml_header = '<?xml version="1.0" encoding="ISO-8859-1"?>'
 xml_style = '<?xml-stylesheet href="estilazo.css" type="text/css"?>'
 
 root = etree.Element("Services")
@@ -51,5 +50,5 @@ for line in content:
 xml_file = etree.tostring(root, encoding="ISO-8859-1",
                             xml_declaration=True, doctype=xml_style)
 
-with open('ponctualite-mensuelle-transilien.xml', 'wb') as file:
+with open('ponctualite-mensuelle-transilien-2.xml', 'wb') as file:
     file.write(xml_file)
