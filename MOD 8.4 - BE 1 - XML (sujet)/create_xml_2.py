@@ -8,6 +8,7 @@ with open("ponctualite-mensuelle-transilien.csv", encoding="ISO-8859-1") as file
 
 xml_style = '<?xml-stylesheet href="estilazo.css"  type="text/css"?>' \
             '<!DOCTYPE Services [' \
+            '<!ELEMENT Services (Service+)>' \
             '<!ELEMENT Service (ServiceNom, Ligne+)>' \
             '<!ELEMENT Ligne (LigneID, LigneNom, Train)>' \
             '<!ELEMENT Train (TrainID, Ponctualite+)>' \
@@ -15,7 +16,6 @@ xml_style = '<?xml-stylesheet href="estilazo.css"  type="text/css"?>' \
             '<!ELEMENT ServiceNom (#PCDATA)>' \
             '<!ELEMENT LigneID (#PCDATA)>' \
             '<!ELEMENT LigneNom (#PCDATA)>' \
-            '<!ELEMENT Train (#PCDATA)>' \
             '<!ELEMENT TrainID (#PCDATA)>' \
             '<!ELEMENT Date (#PCDATA)>' \
             '<!ELEMENT Taux (#PCDATA)>' \
