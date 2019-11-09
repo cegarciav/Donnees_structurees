@@ -6,7 +6,21 @@ with open("ponctualite-mensuelle-transilien.csv", encoding="ISO-8859-1") as file
     headers = next(reader)
     content = [{headers[nb] : x[nb] for nb in range(len(headers))} for x in reader]
 
-xml_style = '<?xml-stylesheet href="estilazo.css" type="text/css"?>'
+xml_style = '<?xml-stylesheet href="estilazo.css"  type="text/css"?>' \
+            '<!DOCTYPE Services [' \
+            '<!ELEMENT Service (ServiceNom, Ligne+)>' \
+            '<!ELEMENT Ligne (LigneID, LigneNom, Train)>' \
+            '<!ELEMENT Train (TrainID, Ponctualite+)>' \
+            '<!ELEMENT Ponctualite (Date, Taux, PonctuelParRetard)>' \
+            '<!ELEMENT ServiceNom (#PCDATA)>' \
+            '<!ELEMENT LigneID (#PCDATA)>' \
+            '<!ELEMENT LigneNom (#PCDATA)>' \
+            '<!ELEMENT Train (#PCDATA)>' \
+            '<!ELEMENT TrainID (#PCDATA)>' \
+            '<!ELEMENT Date (#PCDATA)>' \
+            '<!ELEMENT Taux (#PCDATA)>' \
+            '<!ELEMENT PonctuelParRetard (#PCDATA)>' \
+            ']>'
 
 root = etree.Element("Services")
 for line in content:
@@ -45,7 +59,6 @@ for line in content:
         punctuality_taux.text = line["Taux de ponctualité"]
         punctuality_atTime = etree.SubElement(train_punctuality, "PonctuelParRetard")
         punctuality_atTime.text = line["Nombre de voyageurs à l'heure pour un voyageur en retard"]
-
 
 xml_file = etree.tostring(root, encoding="ISO-8859-1",
                             xml_declaration=True, doctype=xml_style)
