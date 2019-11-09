@@ -6,6 +6,8 @@ with open("ponctualite-mensuelle-transilien.csv", encoding="ISO-8859-1") as file
     headers = next(reader)
     content = [{headers[nb] : x[nb] for nb in range(len(headers))} for x in reader]
 
+xml_header = '<?xml version="1.0" encoding="ISO-8859-1"?>'
+xml_style = '<?xml-stylesheet href="estilazo.css"?>'
 root = etree.Element("Services")
 for line in content:
     service = [x for x in root if line["Service"] in [y.text for y in x]]
@@ -44,4 +46,14 @@ for line in content:
         punctuality_atTime = etree.SubElement(train_punctuality, "PonctuelParRetard")
         punctuality_atTime.text = line["Nombre de voyageurs à l'heure pour un voyageur en retard"]
 
-print(etree.tostring(root, pretty_print=True, encoding="unicode"))
+#print(etree.tostring(root, pretty_print=True, encoding="unicode"))
+
+xml_file = etree.tostring(root, encoding="ISO-8859-1",
+                            xml_declaration=True, doctype=xml_style)
+#print(xml_file[:100])
+#xml_file = xml_header + xml_style + xml_file
+#xml_file = etree.ElementTree(xml_file)
+#xml_file.write("trains_paris.xml")
+
+with open('trains_paris.xml', 'wb') as file:
+    file.write(xml_file)
