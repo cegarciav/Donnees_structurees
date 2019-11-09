@@ -7,13 +7,14 @@ with open("ponctualite-mensuelle-transilien.csv", encoding="ISO-8859-1") as file
     content = [{headers[nb] : x[nb] for nb in range(len(headers))} for x in reader]
 
 xml_header = '<?xml version="1.0" encoding="ISO-8859-1"?>'
-xml_style = '<?xml-stylesheet href="estilazo.css"?>'
+xml_style = '<?xml-stylesheet href="estilazo.css" type="text/css"?>'
+
 root = etree.Element("Services")
 for line in content:
     service = [x for x in root if line["Service"] in [y.text for y in x]]
     if len(service) == 0:
         service = etree.SubElement(root, "Service")
-        service_nom = etree.SubElement(service, "Nom")
+        service_nom = etree.SubElement(service, "ServiceNom")
         service_nom.text = line["Service"]
     else:
         service = service[0]
@@ -21,12 +22,12 @@ for line in content:
     ligne = [x for x in service if line["Ligne"] in [y.text for y in x]]
     if len(ligne) == 0:
         ligne = etree.SubElement(service, "Ligne")
-        ligne_id = etree.SubElement(ligne, "ID")
+        ligne_id = etree.SubElement(ligne, "LigneID")
         ligne_id.text = line["Ligne"]
-        ligne_nom = etree.SubElement(ligne, "Nom")
+        ligne_nom = etree.SubElement(ligne, "LigneNom")
         ligne_nom.text = line["Nom de la ligne"]
         ligne_train = etree.SubElement(ligne, "Train")
-        train_id = etree.SubElement(ligne_train, "ID")
+        train_id = etree.SubElement(ligne_train, "TrainID")
         train_id.text = line["ID"]
         train_punctuality = etree.SubElement(ligne_train, "Ponctualite")
         punctuality_date = etree.SubElement(train_punctuality, "Date")
@@ -46,14 +47,9 @@ for line in content:
         punctuality_atTime = etree.SubElement(train_punctuality, "PonctuelParRetard")
         punctuality_atTime.text = line["Nombre de voyageurs à l'heure pour un voyageur en retard"]
 
-#print(etree.tostring(root, pretty_print=True, encoding="unicode"))
 
 xml_file = etree.tostring(root, encoding="ISO-8859-1",
                             xml_declaration=True, doctype=xml_style)
-#print(xml_file[:100])
-#xml_file = xml_header + xml_style + xml_file
-#xml_file = etree.ElementTree(xml_file)
-#xml_file.write("trains_paris.xml")
 
 with open('ponctualite-mensuelle-transilien.xml', 'wb') as file:
     file.write(xml_file)
