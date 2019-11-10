@@ -1,0 +1,129 @@
+Services
+{
+    display: block;
+    font-family: Verdana;
+    background-color: white;
+}
+
+Service
+{
+    display: block;
+}
+
+Service Nom
+{
+    display: block;
+    font-size: 1.8em;
+    background-color: #990000;
+    color: white;
+    padding: 30px;
+    font-weight: bold;
+}
+
+Service Nom::before
+{
+    content: "Service ";
+}
+
+Lignes
+{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+}
+
+Ligne
+{
+    flex-basis: 30%;
+    margin: 30px;
+    background-color: initial;
+    color: initial;
+}
+
+Ligne ID::before
+{
+    content: "ID de la ligne : ";
+    font-weight: bold;
+}
+
+Ligne Nom::before
+{
+    content: "Nom de la ligne : ";
+    font-weight: bold;
+}
+
+Ligne ID
+{
+    display: block;
+    font-size: 1em;
+    margin: 4px;
+}
+
+Ligne Nom
+{
+    display: block;
+    font-size: 1em;
+    margin: 4px;
+    background-color: inherit;
+    color: inherit;
+    padding: 0px;
+    font-weight: normal;
+}
+
+Train
+{
+
+}
+
+Train ID
+{
+    font-size: 1em;
+    margin: 4px;
+}
+
+Train ID::before
+{
+    content: "ID du train : ";
+    font-weight: bold;
+}
+
+Ponctualites
+{
+    display: table;
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+}
+
+Ponctualite, Entete
+{
+    display: table-row;
+    vertical-align: inherit;
+    border: solid 1px;
+    border-collapse: collapse;
+}
+
+Date, Taux, PonctuelParRetard
+{
+    display: table-cell;
+    border: solid 1px black;
+    vertical-align: inherit;
+    border-collapse: collapse;
+    padding: 4px;
+}
+
+Ponctualite Date, Ponctualite Taux, Ponctualite PonctuelParRetard
+{
+    text-align: right;
+    background-color: #ffe0e0;
+}
+
+Entete
+{
+    text-align: center;
+    font-weight: bold;
+    background-color: #990000;
+    color: white;
+
+}
