@@ -6,12 +6,14 @@
 
 	<xsl:template match="/">
         <html xmlns="http://www.w3.org/1999/xhtml" >
+            <link rel="stylesheet" type="text/css" href="estilo.css"/>
             <xsl:for-each select="ponctualite-transilien/service">
-            	<xsl:value-of select="@nom"></xsl:value-of>
+            	<h1><xsl:value-of select="@nom"></xsl:value-of></h1>
             	<xsl:for-each select="ligne">
             		<xsl:sort select="sigle"></xsl:sort>
-
+                    
             		<table>
+                        <h2><xsl:value-of select="@nom"></xsl:value-of></h2>
             			<tr>
             				<th>Date</th>
             				<th>Ponctualite</th>
