@@ -1,0 +1,16 @@
+<code-couleur-transilien>
+  <ligne sigle="C" nom="RER C" couleur="jaune" r="252" g="216" b="70" hex="#FCD946"/>
+  <ligne sigle="E" nom="RER E" couleur="rose" r="189" g="118" b="161" hex="#BD76A1"/>
+  <ligne sigle="K" nom="Ligne K" couleur="kaki" r="199" g="179" b="0" hex="#C7B300"/>
+  <ligne sigle="N" nom="Ligne N" couleur="bleu paon" r="0" g="160" b="146" hex="#00A092"/>
+  <ligne sigle="A" nom="RER A" couleur="rouge" r="209" g="48" b="47" hex="#D1302F"/>
+  <ligne sigle="B" nom="RER B" couleur="bleu" r="66" g="125" b="189" hex="#427DBD"/>
+  <ligne sigle="D" nom="RER D" couleur="vert" r="94" g="150" b="32" hex="#5E9620"/>
+  <ligne sigle="H" nom="Ligne H" couleur="marron" r="123" g="67" b="57" hex="#7B4339"/>
+  <ligne sigle="L" nom="Ligne L" couleur="pastel" r="117" g="132" b="188" hex="#7584BC"/>
+  <ligne sigle="R" nom="Ligne R" couleur="rose" r="228" g="180" b="209" hex="#E4B4D1"/>
+  <ligne sigle="U" nom="Ligne U" couleur="fushia" r="214" g="0" b="88" hex="#D60058"/>
+  <ligne sigle="T4" nom="Tram T4" couleur="orange" r="242" g="175" b="0" hex="#F2AF00"/>
+  <ligne sigle="J" nom="Ligne J" couleur="moutarde" r="205" g="205" b="0" hex="#CDCD00"/>
+  <ligne sigle="P" nom="Ligne P" couleur="orange" r="240" g="182" b="0" hex="#F0B600"/>
+</code-couleur-transilien>

@@ -1,0 +1,98 @@
+body
+{
+    display: block;
+    font-family: Verdana;
+    background-color: white;
+    margin: 0;
+}
+
+.service
+{
+    display: block;
+}
+
+.lines
+{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+}
+
+.line
+{
+    flex-basis: 30%;
+    margin: 30px;
+    background-color: initial;
+    color: initial;
+}
+
+h1
+{
+    display: block;
+    font-size: 1.8em;
+    background-color: #990000;
+    color: white;
+    padding: 30px;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+table
+{
+    display: table;
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+}
+
+th
+{
+    text-align: center;
+    font-weight: bold;
+    background-color: #990000;
+    color: white;
+    vertical-align: inherit;
+    border: solid 1px black;
+    border-collapse: collapse;
+}
+
+td
+{
+    border: solid 1px black;
+    vertical-align: inherit;
+    border-collapse: collapse;
+    padding: 4px;
+    text-align: right;
+    background-color: #ffe0e0;
+}
+
+.header-row
+{
+    vertical-align: inherit;
+    border: solid 1px;
+    border-collapse: collapse;
+    text-align: center;
+    font-weight: bold;
+    background-color: #990000;
+    color: white;
+}
+
+.data-row
+{
+    vertical-align: inherit;
+    border: solid 1px;
+    border-collapse: collapse;
+}
+
+.big-title
+{
+    display: block;
+    font-size: 2em;
+    background-color: white;
+    color: black;
+    padding: 30px;
+    font-weight: bold;
+    margin-top: 0;
+    text-align: center;
+}
